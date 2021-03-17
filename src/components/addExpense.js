@@ -14,5 +14,5 @@ const AddExp = (props) => (
             />
     </div>
 );
-
+console.log('cc')
 export default connect()(AddExp);
