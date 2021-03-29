@@ -9,11 +9,11 @@ logs
 **/*.backup.*
 **/*.back.*
 
+node_modules
 public/bundle.js
 public/bundle.js.map
 public/styles.css
 public/styles.css.map
-node_modules
 bower_components
 
 *.sublime*
