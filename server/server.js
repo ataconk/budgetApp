@@ -1,7 +1,8 @@
 const express = require('express')
 const path = require('path')
-
 const publicPath = path.join(__dirname, '..', 'public')
+const port = process.env.PORT || 3000; // if there is env file, reads from there otherwise 3000
+
 const app = express()
 app.use(express.static(publicPath)) // use publoc dir to serve static assets
 
@@ -10,6 +11,6 @@ app.get('*', (req,res)=> {
 })
 // above is same thing as in webpack.config
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server is up!')
 })
