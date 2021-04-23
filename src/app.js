@@ -8,6 +8,7 @@ import AppRouter from '../src/routers/AppRouter'
 import { addExpense, editExpense, removeExpense } from '../src/actions/expenses';
 import getVisibleExpenses from '../src/selectors/expenses'
 import { setTextFilter } from '../src/actions/filters'
+import './firebase/firebase'
 
 const store =configureStore();
 
