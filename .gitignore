@@ -15,7 +15,9 @@ public/bundle.js.map
 public/styles.css
 public/styles.css.map
 bower_components
-
+.env.*
+.env.test
+env.test
 *.sublime*
 
 psd

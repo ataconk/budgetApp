@@ -5,7 +5,7 @@ import configureStore from '../src/store/configureStore'
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import AppRouter from '../src/routers/AppRouter'
-import { addExpense, editExpense, removeExpense } from '../src/actions/expenses';
+import { startSetExpenses} from '../src/actions/expenses';
 import getVisibleExpenses from '../src/selectors/expenses'
 import { setTextFilter } from '../src/actions/filters'
 import './firebase/firebase'
@@ -21,4 +21,8 @@ const jsx = (
 
     </Provider>
 )
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+
+store.dispatch(startSetExpenses()).then(()=>{
+    ReactDOM.render(jsx, document.getElementById('app'));
+})
