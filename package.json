@@ -10,7 +10,7 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
-    "test": "jest --config=jest.config.json",
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
@@ -22,7 +22,9 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
+    "cross-env": "^7.0.3",
     "css-loader": "0.28.4",
+    "dotenv": "^8.2.0",
     "env": "0.0.2",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
