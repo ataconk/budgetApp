@@ -9,6 +9,8 @@ logs
 **/*.backup.*
 **/*.back.*
 
+.env.test
+.env.development
 node_modules
 public/bundle.js
 public/bundle.js.map
