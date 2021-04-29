@@ -8,7 +8,7 @@ import AppRouter from '../src/routers/AppRouter'
 import { startSetExpenses} from '../src/actions/expenses';
 import getVisibleExpenses from '../src/selectors/expenses'
 import { setTextFilter } from '../src/actions/filters'
-import './firebase/firebase'
+import {firebase} from './firebase/firebase'
 
 const store =configureStore();
 
@@ -25,4 +25,12 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
 store.dispatch(startSetExpenses()).then(()=>{
     ReactDOM.render(jsx, document.getElementById('app'));
+})
+
+firebase.auth().onAuthStateChanged((user)=>{
+    if(user){
+        console.log('log in')
+    }else{
+        console.log('log out')
+    }
 })

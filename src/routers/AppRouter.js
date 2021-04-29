@@ -6,6 +6,7 @@ import EditExpensePage from '../components/editExpense';
 import NotFoundPage from '../components/notFoundPage';
 import AddExp from '../components/addExpense';
 import Header from '../components/header';
+import LoginPage from '../components/loginPage';
 
 
 const AppRouter  = () => (
@@ -13,7 +14,8 @@ const AppRouter  = () => (
         <div>
             <Header/>
             <Switch>
-                <Route path="/" component={ExpenseDashboardPage} exact={true}/>
+                <Route path="/" component={LoginPage} exact={true}/>
+                <Route path="/dashboard" component={ExpenseDashboardPage}/>
                 <Route path="/create" component={AddExp}/>
                 <Route path="/edit/:id" component={EditExpensePage} />
                 <Route path="/help" components={HelpPage} />
