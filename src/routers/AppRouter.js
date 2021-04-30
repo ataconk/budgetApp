@@ -6,20 +6,21 @@ import ExpenseDashboardPage from '../components/expenseDashboard';
 import EditExpensePage from '../components/editExpense';
 import NotFoundPage from '../components/notFoundPage';
 import AddExp from '../components/addExpense';
-import Header from '../components/header';
+
 import LoginPage from '../components/loginPage';
+import PrivateRoute from './PrivateRoute'
 
 export const history = createHistory()
 
 const AppRouter  = () => (
     <Router history={history}>
         <div>
-            <Header/>
+
             <Switch>
                 <Route path="/" component={LoginPage} exact={true}/>
-                <Route path="/dashboard" component={ExpenseDashboardPage}/>
-                <Route path="/create" component={AddExp}/>
-                <Route path="/edit/:id" component={EditExpensePage} />
+                <PrivateRoute path="/dashboard" component={ExpenseDashboardPage}/>
+                <PrivateRoute path="/create" component={AddExp}/>
+                <PrivateRoute path="/edit/:id" component={EditExpensePage} />
                 <Route path="/help" components={HelpPage} />
                 <Route component={NotFoundPage} />
             </Switch>
