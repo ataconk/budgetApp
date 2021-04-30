@@ -7,7 +7,7 @@ import './styles/styles.scss';
 import AppRouter, {history} from '../src/routers/AppRouter'
 import { startSetExpenses} from '../src/actions/expenses';
 import getVisibleExpenses from '../src/selectors/expenses'
-import { setTextFilter } from '../src/actions/filters'
+import { login, logout } from '../src/actions/auth'
 import {firebase} from './firebase/firebase'
 
 const store =configureStore();
@@ -35,15 +35,17 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user)=>{
     if(user){
+        store.dispatch(login(user.uid))
         store.dispatch(startSetExpenses()).then(()=>{
-        renderApp()
-        if(history.location.pathname==='/'){
-            history.push('/dashboard')
-        }
-            })
+            renderApp()
+            if(history.location.pathname==='/'){
+                history.push('/dashboard')
+            }
+        })
         history.push()
         console.log('log in')
     }else{
+        store.dispatch(logout())
         renderApp()
         history.push('/')
         console.log('log out')
