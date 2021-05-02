@@ -5,6 +5,7 @@ import configureStore from '../src/store/configureStore'
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import AppRouter, {history} from '../src/routers/AppRouter'
+import LoadingPage from './components/LoadingPage'
 import { startSetExpenses} from '../src/actions/expenses';
 import getVisibleExpenses from '../src/selectors/expenses'
 import { login, logout } from '../src/actions/auth'
@@ -29,7 +30,7 @@ const renderApp = () => {
         hasRendered = true
     }
 }
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage/>, document.getElementById('app'));
 
 
 
